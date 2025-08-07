@@ -1,0 +1,495 @@
+Of course! Using distinctive typography is a great way to enhance the design and readability of the page.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometry Reference Guide</title>
+
+    <!-- Google Fonts: Space Grotesk for titles, Source Serif Pro for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- MathJax for rendering beautiful math formulas -->
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* General Styling */
+        :root {
+            --primary-color: #005a9c; /* A nice blue */
+            --secondary-color: #f4f4f9; /* Light grey for UI elements */
+            --text-color: #333;
+            --header-color: #003d6b;
+            --border-color: #ddd;
+            --icon-bg-color: #ffeb3b; /* A nice yellow for icons */
+            --shadow-color: #e0e0e0; /* A neutral grey for the back shadow */
+        }
+
+        body {
+            font-family: 'Source Serif Pro', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            /* Textured Background */
+            background-color: #FFD54F; /* A pleasant mustard yellow */
+            background-image: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 2px,
+                rgba(255, 255, 255, 0.4) 2px,
+                rgba(255, 255, 255, 0.4) 4px
+            );
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        /* Headers */
+        h1, h2, h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--header-color);
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+             margin-top: 25px;
+        }
+        
+        .topic-box {
+            background-color: #fff;
+            border: 2px dashed #555;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 45px;
+            position: relative;
+        }
+        .topic-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--shadow-color);
+            border-radius: inherit;
+            transform: translate(10px, 10px);
+            z-index: -1;
+            transition: transform 0.2s ease;
+        }
+        
+        .topic-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .topic-icon {
+            display: inline-block;
+            font-size: 1.8em;
+            background-color: var(--icon-bg-color);
+            padding: 12px;
+            border-radius: 8px;
+            line-height: 1;
+            margin-right: 15px;
+            transition: font-size 0.2s ease, padding 0.2s ease;
+        }
+
+        .topic-header h2 {
+            margin: 0;
+        }
+        
+        /* Tabbed Navigation Styling */
+        nav.navigation-tabs {
+            background-color: #FFD54F;
+            background-image: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 2px,
+                rgba(255, 255, 255, 0.4) 2px,
+                rgba(255, 255, 255, 0.4) 4px
+            );
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        .navigation-tabs ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 10px;
+        }
+
+        .navigation-tabs li {
+            flex-grow: 1;
+        }
+
+        .navigation-tabs a {
+            font-family: 'Space Grotesk', sans-serif;
+            display: block;
+            text-decoration: none;
+            color: var(--text-color);
+            background-color: #fff;
+            padding: 12px 15px;
+            font-weight: 700;
+            font-size: 0.9em;
+            position: relative;
+            border-bottom: 2px solid #333;
+            border-top: 2px dashed #333;
+            border-left: 2px dashed #333;
+            transition: transform 0.2s ease;
+        }
+        
+        .navigation-tabs a.active,
+        .navigation-tabs a:hover {
+            border-top: 2px solid #333;
+            border-left: 2px solid #333;
+            transform: translateY(-2px);
+        }
+        
+        .navigation-tabs a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 45px 30px;
+        }
+
+        .nav-basics::after    { border-color: transparent transparent #ffc0cb transparent; }
+        .nav-values::after    { border-color: transparent transparent #ffab91 transparent; }
+        .nav-identities::after{ border-color: transparent transparent #a5d6a7 transparent; }
+        .nav-sum::after       { border-color: transparent transparent #90caf9 transparent; }
+        .nav-double::after    { border-color: transparent transparent #b39ddb transparent; }
+        .nav-triple::after    { border-color: transparent transparent #f48fb1 transparent; }
+        .nav-sum-prod::after  { border-color: transparent transparent #80deea transparent; }
+        .nav-prod-sum::after  { border-color: transparent transparent #ffe082 transparent; }
+        
+        /* SVG Diagram Styling */
+        .diagram-container {
+             max-width: 400px;
+             margin: 20px auto;
+             padding: 15px;
+             border: 1px solid var(--border-color);
+             border-radius: 5px;
+        }
+        .diagram-svg {
+            width: 100%;
+            height: auto;
+            font-family: sans-serif;
+        }
+        
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: #fff;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Formula list styling */
+        .formula-list {
+            list-style: none;
+            padding: 0;
+        }
+        .formula-list li {
+            background: #fdfdff;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            overflow-x: auto;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* Mobile Compatibility Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            h1 { 
+                font-size: 1.8em; 
+                margin-bottom: 20px;
+            }
+            h2 { 
+                font-size: 1.4em; 
+            }
+
+            .navigation-tabs ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .topic-icon {
+                font-size: 1.5em;
+                padding: 10px;
+            }
+            .topic-box { 
+                padding: 20px; 
+            }
+            .topic-box::after {
+                transform: translate(6px, 6px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Trigonometry Reference Guide</h1>
+
+        <!-- Navigation Section -->
+        <nav class="navigation-tabs">
+            <ul>
+                <li><a href="#basics" class="nav-basics active">Basics & Definitions</a></li>
+                <li><a href="#values" class="nav-values">Specific Angles</a></li>
+                <li><a href="#identities" class="nav-identities">Key Identities</a></li>
+                <li><a href="#sum-difference" class="nav-sum">Sum & Difference</a></li>
+                <li><a href="#double-angle" class="nav-double">Double Angle</a></li>
+                <li><a href="#triple-angle" class="nav-triple">Triple Angle</a></li>
+                <li><a href="#sum-to-product" class="nav-sum-prod">Sum-to-Product</a></li>
+                <li><a href="#product-to-sum" class="nav-prod-sum">Product-to-Sum</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <!-- Section: Basics -->
+            <section id="basics" class="topic-box">
+                <div class="topic-header">
+                    <div class="topic-icon">📐</div>
+                    <h2>Basics and Definitions</h2>
+                </div>
+                <h3>Radian Diagram</h3>
+                <p>The radian is a unit of angle, defined such that in a circle, an angle of 1 radian subtends an arc of length equal to the radius. The formula is $\theta = \frac{l}{r}$, where $l$ is the arc length and $r$ is the radius.</p>
+                <div class="diagram-container">
+                    <svg viewBox="0 0 220 180" class="diagram-svg" aria-labelledby="radian-title" role="img">
+                        <title id="radian-title">Radian Definition Diagram</title>
+                        <desc>A circle with a highlighted sector. The sector has an angle of 1 radian, and the arc length is equal to the radius.</desc>
+                        <defs>
+                            <marker id="radian-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" fill="#333">
+                                <path d="M 0 0 L 10 5 L 0 10 z" />
+                            </marker>
+                        </defs>
+                        <circle cx="100" cy="90" r="70" stroke="#333" stroke-width="2" fill="none" />
+                        <path d="M 100 90 L 170 90 A 70 70 0 0 0 137.82 24.09 Z" fill="#cce7f5" stroke="#333" stroke-width="2" />
+                        <path d="M 130 90 A 30 30 0 0 0 116.5 68.87" stroke="#333" stroke-width="1.5" fill="none" marker-end="url(#radian-arrow)" />
+                        <path d="M 178 85 A 80 80 0 0 0 142.82 20.09" stroke="#333" stroke-width="1.5" fill="none" marker-start="url(#radian-arrow)" />
+                        <text x="85" y="95" class="label" font-size="18">O</text>
+                        <text x="175" y="105" class="label" font-size="18">A</text>
+                        <text x="135" y="15" class="label" font-size="18">B</text>
+                        <text x="135" y="100" class="dim" font-size="18">1</text>
+                        <text x="110" y="50" class="dim" font-size="18">1</text>
+                        <text x="165" y="50" class="dim" font-size="18">1</text>
+                        <text x="115" y="85" class="dim" font-size="16">1 radian</text>
+                    </svg>
+                </div>
+
+                <h3>Trigonometric Ratios on the Unit Circle</h3>
+                <p>On a unit circle (radius = 1), the trigonometric functions of an angle $\theta$ can be visualized as lengths of various line segments.</p>
+                <div class="diagram-container">
+                    <svg viewBox="-140 -140 280 280" class="diagram-svg" aria-labelledby="trig-ratio-title" role="img">
+                        <title id="trig-ratio-title">Trigonometric Ratios on a Unit Circle</title>
+                        <style>
+                            .label { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: bold; }
+                            .axis-label { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-style: italic; }
+                        </style>
+                        <defs>
+                            <marker id="axis-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto" fill="#000">
+                                <path d="M 0 0 L 10 5 L 0 10 z" />
+                            </marker>
+                        </defs>
+                        <!-- Axes and Labels -->
+                        <line x1="-130" y1="0" x2="130" y2="0" stroke="#000" stroke-width="1" marker-end="url(#axis-arrow)" />
+                        <line x1="0" y1="130" x2="0" y2="-130" stroke="#000" stroke-width="1" marker-end="url(#axis-arrow)" />
+                        <text x="125" y="-10" class="axis-label">x</text> <text x="10" y="-125" class="axis-label">y</text>
+                        <text x="102" y="15" class="axis-label">1</text> <text x="-112" y="15" class="axis-label">-1</text>
+                        <text x="-12" y="-102" class="axis-label">1</text> <text x="-12" y="112" class="axis-label">-1</text>
+                        <circle cx="0" cy="0" r="100" stroke="#800080" stroke-width="2.5" fill="none" />
+                        <g id="trig-lines">
+                            <line x1="0" y1="0" x2="76.6" y2="-64.3" stroke="#000" stroke-width="1"/>
+                            <line x1="0" y1="0" x2="76.6" y2="0" stroke="#0000FF" stroke-width="3" /><text x="30" y="18" fill="#0000FF" class="label">cos(θ)</text>
+                            <line x1="76.6" y1="0" x2="76.6" y2="-64.3" stroke="#FF0000" stroke-width="3" /><text x="82" y="-30" fill="#FF0000" class="label">sin(θ)</text>
+                            <line x1="100" y1="0" x2="100" y2="-83.9" stroke="#FFA500" stroke-width="3" /><text x="105" y="-35" fill="#FFA500" class="label">tan(θ)</text>
+                            <line x1="0" y1="0" x2="100" y2="-83.9" stroke="#008000" stroke-width="3" /><text x="60" y="-55" fill="#008000" class="label" transform="rotate(40 60 -55)">sec(θ)</text>
+                            <line x1="0" y1="-100" x2="119.2" y2="-100" stroke="#A52A2A" stroke-width="3" /><text x="50" y="-105" fill="#A52A2A" class="label">cot(θ)</text>
+                            <line x1="0" y1="0" x2="119.2" y2="-100" stroke="#FFC0CB" stroke-width="3" /><text x="55" y="-30" fill="#E91E63" class="label" transform="rotate(40 55 -30)">csc(θ)</text>
+                        </g>
+                        <path d="M 40 0 A 40 40 0 0 1 30.64 -25.7" stroke="#000" stroke-width="1.5" fill="none" />
+                        <text x="45" y="-10" fill="#000" font-size="14px">θ</text>
+                    </svg>
+                </div>
+            </section>
+            
+            <!-- Section: Values of Specific Angles -->
+            <section id="values" class="topic-box">
+                <div class="topic-header">
+                    <div class="topic-icon">🔢</div>
+                    <h2>Values of Specific Angles</h2>
+                </div>
+                <!-- Wrapper for horizontal scrolling on mobile -->
+                <div style="overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Angle ($\theta$)</th><th>$0^\circ$ (0)</th><th>$30^\circ$ ($\pi/6$)</th><th>$45^\circ$ ($\pi/4$)</th><th>$60^\circ$ ($\pi/3$)</th><th>$90^\circ$ ($\pi/2$)</th><th>$180^\circ$ ($\pi$)</th><th>$270^\circ$ ($3\pi/2$)</th><th>$360^\circ$ ($2\pi$)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>$\sin(\theta)$</td><td>0</td><td>$\frac{1}{2}$</td><td>$\frac{1}{\sqrt{2}}$</td><td>$\frac{\sqrt{3}}{2}$</td><td>1</td><td>0</td><td>-1</td><td>0</td></tr>
+                            <tr><td>$\cos(\theta)$</td><td>1</td><td>$\frac{\sqrt{3}}{2}$</td><td>$\frac{1}{\sqrt{2}}$</td><td>$\frac{1}{2}$</td><td>0</td><td>-1</td><td>0</td><td>1</td></tr>
+                            <tr><td>$\tan(\theta)$</td><td>0</td><td>$\frac{1}{\sqrt{3}}$</td><td>1</td><td>$\sqrt{3}$</td><td>undefined</td><td>0</td><td>undefined</td><td>0</td></tr>
+                            <tr><td>$\cot(\theta)$</td><td>undefined</td><td>$\sqrt{3}$</td><td>1</td><td>$\frac{1}{\sqrt{3}}$</td><td>0</td><td>undefined</td><td>0</td><td>undefined</td></tr>
+                            <tr><td>$\sec(\theta)$</td><td>1</td><td>$\frac{2}{\sqrt{3}}$</td><td>$\sqrt{2}$</td><td>2</td><td>undefined</td><td>-1</td><td>undefined</td><td>1</td></tr>
+                            <tr><td>$\csc(\theta)$</td><td>undefined</td><td>2</td><td>$\sqrt{2}$</td><td>$\frac{2}{\sqrt{3}}$</td><td>1</td><td>undefined</td><td>-1</td><td>undefined</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Section: Key Identities -->
+            <section id="identities" class="topic-box">
+                <div class="topic-header">
+                    <div class="topic-icon">🔑</div>
+                    <h2>Key Identities</h2>
+                </div>
+                <h3>Negative Angles</h3>
+                <ul class="formula-list">
+                    <li>$\sin(-x) = -\sin(x)$</li><li>$\cos(-x) = \cos(x)$</li><li>$\tan(-x) = -\tan(x)$</li><li>$\cot(-x) = -\cot(x)$</li><li>$\sec(-x) = \sec(x)$</li><li>$\csc(-x) = -\csc(x)$</li>
+                </ul>
+                <h3>Quadrant Rules (ASTC)</h3>
+                <p>Sign of functions in the four quadrants (All, Sine, Tangent, Cosine):</p>
+                <ul>
+                    <li><strong>Quadrant I (0 to $\pi/2$):</strong> All functions are positive.</li><li><strong>Quadrant II ($\pi/2$ to $\pi$):</strong> Sine and Cosecant are positive.</li><li><strong>Quadrant III ($\pi$ to $3\pi/2$):</strong> Tangent and Cotangent are positive.</li><li><strong>Quadrant IV ($3\pi/2$ to $2\pi$):</strong> Cosine and Secant are positive.</li>
+                </ul>
+                <h3>Cofunction Identities</h3>
+                <p>Function changes for odd multiples of $\pi/2$ (e.g., $\pi/2 \pm \theta$):</p>
+                <ul class="formula-list">
+                    <li>$\sin\left(\frac{n\pi}{2} \pm \theta\right) = \cos(\theta)$ &nbsp;&nbsp; (for odd $n$)</li>
+                </ul>
+                <p>Function remains the same for multiples of $\pi$ (e.g., $\pi \pm \theta$):</p>
+                <ul class="formula-list">
+                    <li>$\sin(n\pi \pm \theta) = \pm\sin(\theta)$ &nbsp;&nbsp; (sign depends on quadrant)</li>
+                </ul>
+            </section>
+
+            <!-- Section: Sum & Difference -->
+            <section id="sum-difference" class="topic-box">
+                <div class="topic-header">
+                    <div class="topic-icon">➕</div>
+                    <h2>Sum and Difference Formulas</h2>
+                </div>
+                 <ul class="formula-list">
+                    <li>$\sin(x + y) = \sin(x)\cos(y) + \cos(x)\sin(y)$</li>
+                    <li>$\sin(x - y) = \sin(x)\cos(y) - \cos(x)\sin(y)$</li>
+                    <li>$\cos(x + y) = \cos(x)\cos(y) - \sin(x)\sin(y)$</li>
+                    <li>$\cos(x - y) = \cos(x)\cos(y) + \sin(x)\sin(y)$</li>
+                    <li>$ \tan(x + y) = \frac{\tan(x) + \tan(y)}{1 - \tan(x)\tan(y)} $</li>
+                    <li>$ \tan(x - y) = \frac{\tan(x) - \tan(y)}{1 + \tan(x)\tan(y)} $</li>
+                    <li>$ \cot(x + y) = \frac{\cot(x)\cot(y) - 1}{\cot(y) + \cot(x)} $</li>
+                    <li>$ \cot(x - y) = \frac{\cot(x)\cot(y) + 1}{\cot(y) - \cot(x)} $</li>
+                </ul>
+            </section>
+
+            <!-- Section: Double Angle -->
+            <section id="double-angle" class="topic-box">
+                <div class="topic-header">
+                    <div class="topic-icon">✌️</div>
+                    <h2>Double Angle Formulas</h2>
+                </div>
+                <ul class="formula-list">
+                    <li>$\sin(2x) = 2\sin(x)\cos(x) = \frac{2\tan(x)}{1 + \tan^2(x)}$</li>
+                    <li>$\cos(2x) = \cos^2(x) - \sin^2(x) = 2\cos^2(x) - 1 = 1 - 2\sin^2(x) = \frac{1 - \tan^2(x)}{1 + \tan^2(x)}$</li>
+                    <li>$\tan(2x) = \frac{2\tan(x)}{1 - \tan^2(x)}$</li>
+                </ul>
+            </section>
+
+            <!-- Section: Triple Angle -->
+            <section id="triple-angle" class="topic-box">
+                <div class="topic-header">
+                    <div class="topic-icon">🤟</div>
+                    <h2>Triple Angle Formulas</h2>
+                </div>
+                <ul class="formula-list">
+                    <li>$\sin(3x) = 3\sin(x) - 4\sin^3(x)$</li>
+                    <li>$\cos(3x) = 4\cos^3(x) - 3\cos(x)$</li>
+                    <li>$\tan(3x) = \frac{3\tan(x) - \tan^3(x)}{1 - 3\tan^2(x)}$</li>
+                </ul>
+            </section>
+
+            <!-- Section: Sum to Product -->
+            <section id="sum-to-product" class="topic-box">
+                <div class="topic-header">
+                    <div class="topic-icon">🔄</div>
+                    <h2>Sum-to-Product Formulas</h2>
+                </div>
+                <ul class="formula-list">
+                    <li>$\sin(x) + \sin(y) = 2\sin\left(\frac{x+y}{2}\right)\cos\left(\frac{x-y}{2}\right)$</li>
+                    <li>$\sin(x) - \sin(y) = 2\cos\left(\frac{x+y}{2}\right)\sin\left(\frac{x-y}{2}\right)$</li>
+                    <li>$\cos(x) + \cos(y) = 2\cos\left(\frac{x+y}{2}\right)\cos\left(\frac{x-y}{2}\right)$</li>
+                    <li>$\cos(x) - \cos(y) = -2\sin\left(\frac{x+y}{2}\right)\sin\left(\frac{x-y}{2}\right)$</li>
+                </ul>
+            </section>
+
+            <!-- Section: Product to Sum -->
+            <section id="product-to-sum" class="topic-box">
+                <div class="topic-header">
+                    <div class="topic-icon">🔀</div>
+                    <h2>Product-to-Sum Formulas</h2>
+                </div>
+                <ul class="formula-list">
+                    <li>$2\cos(x)\cos(y) = \cos(x+y) + \cos(x-y)$</li>
+                    <li>$-2\sin(x)\sin(y) = \cos(x+y) - \cos(x-y)$</li>
+                    <li>$2\sin(x)\cos(y) = \sin(x+y) + \sin(x-y)$</li>
+                    <li>$2\cos(x)\sin(y) = \sin(x+y) - \sin(x-y)$</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
